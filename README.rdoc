@@ -1,0 +1,50 @@
+The purpose of gem parseline is to help the developers to create modules automatically via directories structure. It also allow use the command 'require' like the command 'import' in java.
+
+===Installation 
+ sudo gem sources --add http://gems.github.com
+ sudo gem install autopath
+
+====Using it
+Gives a directory structure like below
+ /tmp/myapp
+ /tmp/myapp/lib
+ /tmp/myapp/lib/helpers
+ /tmp/myapp/lib/helpers/myfile1.rb
+ /tmp/myapp/lib/helpers/myfile2.rb
+ /tmp/myapp/lib/scripts
+ /tmp/myapp/lib/scripts/backup.rb
+ /tmp/myapp/lib/security
+ /tmp/myapp/lib/security/key.rb
+
+You can create auto path for your root application directory or its subdirectories, for this case we will use the path from dir myapp.
+
+ require 'autopath'
+
+ AutoPath.create '/tmp/myapp', false
+
+The method AutoPath.create will create the modules structure
+
+ Myapp::Lib
+ Myapp::Lib::Helpers
+ Myapp::Lib::Scripts
+ Myapp::Lib::Security
+
+The second parameter 'false' disable auto require in files ended with .rb.
+For example, in the file '/myapp/lib/security/key.rb' you can set the namespace.
+
+  class Myapp::Lib::Security::Key
+
+  end
+
+After create autopath you can run require command like import java package. See below
+
+ require myapp.lib.security.key
+
+this is the same that
+ 
+ require 'myapp/lib/security.key'
+
+but more elegant :)
+
+It's easy to do, so enjoy and make money with it!
+
