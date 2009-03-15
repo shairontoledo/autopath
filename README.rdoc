@@ -2,7 +2,9 @@ The purpose of gem parseline is to help the developers to create modules automat
 
 ===Installation 
  sudo gem sources --add http://gems.github.com
- sudo gem install autopath
+ sudo gem install shairontoledo-autopath
+
+I also don't like use prefix with my name, it's terrible!
 
 ====Using it
 Gives a directory structure like below
